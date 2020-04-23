@@ -12,9 +12,17 @@ constructor( private http: HttpClient ) {
   }  
   getNewReleases(){
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQBnf8sfJyGZapDPRIvJ_B8IjGJteWCNsJjG-B4gfQJNcFPU2Tt5ir2Odkq3L4igp2gecx9C7JNsypbNLy8'
+      'Authorization': 'Bearer BQBd0jE8mbk1C-xJ2tw4-2gpoUjqx4z1xR6KG7PY5ucdarQnI0lieX9p6Pz8R2VWEClUiQtjuGQy_Unvyvk'
     });
 
     return this.http.get(this.url, {headers})
+  }
+
+  getArtist(termino:string){
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer BQBd0jE8mbk1C-xJ2tw4-2gpoUjqx4z1xR6KG7PY5ucdarQnI0lieX9p6Pz8R2VWEClUiQtjuGQy_Unvyvk'
+    });
+
+    return this.http.get(`https://api.spotify.com/v1/search?q=${termino}&type=artist&limit=15`, {headers})
   }
 }
