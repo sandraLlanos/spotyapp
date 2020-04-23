@@ -13,8 +13,13 @@ export class TarjetasComponent implements OnInit {
   ngOnInit() {
   }
 
-  buscarArtista(item) {
-    const artistId = item.id;
+  seeArtist(item: any) {
+    let artistId;
+    if(item.type === 'artist'){
+      artistId = item.id;
+    } else {
+      artistId = item.artists[0].id;
+    }
     this.router.navigate(['/artist', artistId])
   }
 
