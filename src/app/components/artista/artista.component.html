@@ -14,4 +14,30 @@
       Regresar
     </button>
   </div>
+  <div class="row">
+    <div class="col">
+      <table class="table text-light">
+        <caption>Album Information</caption>
+        <thead>
+          <tr>
+            <th scope="col">Foto</th>
+            <th scope="col">Album</th>
+            <th scope="col">Canción</th>
+            <th scope="col">Vista Previa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let track of topTracks">
+            <td>
+              <img [src]="track.album.images | noimage" alt="" class="img-thumb">
+           </td>
+            <td>{{track.album.name}}</td>
+            <td>{{track.name}}</td>
+            <td>
+              <audio [src]="track.preview_url" controls>Ver</audio>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
