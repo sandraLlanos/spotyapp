@@ -20,19 +20,18 @@ export class ArtistaComponent implements OnInit {
     })
   }
 
-  getArtist( id:string ) {
+  getArtist(id: string) {
     this.loading = true;
     this.spotify.getArtist(id).subscribe(data => {
       this.artist = data;
       this.loading = false;
     })
   }
-  getTopTracks( id:string ) {
-    // this.loading = true;
+  getTopTracks(id: string) {
+    this.loading = true;
     this.spotify.getTopTracks(id).subscribe(data => {
-      console.log(data);
       this.topTracks = data;
-      // this.loading = false;
+      this.loading = false;
     })
   }
 
